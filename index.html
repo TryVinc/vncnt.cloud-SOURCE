@@ -22,14 +22,20 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 <body class="home blog panel-initialized" data-current="-1"><!-- .net -->
 
-<iframe id="background-video" width="100%" height="100%" src="https://www.youtube.com/embed/QdnVT22LBBs?autoplay=1&mute=1&loop=1&playlist=QdnVT22LBBs" frameborder="0" allowfullscreen></iframe>
+<video id="background-video" autoplay loop muted>
+  <source src="your-video-file.mp4" type="video/mp4">
+  UNSUPPORTED BROWSER!
+</video>
+
 <style>
   #background-video {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
     z-index: -1;
   }
 </style>

@@ -11,46 +11,22 @@
   <link rel="stylesheet" href="index_files/common.css" type="text/css" media="screen,tv">
   <link rel="stylesheet" href="index_files/smallview.css" media="screen and (max-width:800px)">
   <style>
-    /* CSS for the loading screen */
-    #loading-screen {
+    /* CSS for the loading bar */
+    #loading-bar {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
+      width: 0; /* Initially set to zero width */
+      height: 3px; /* Adjust height as needed */
       background-color: #000;
       z-index: 9999; /* Ensure it's on top */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    #loading-video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    /* CSS for the content with fade-in effect */
-    #content {
-      display: none; /* Initially hide content */
-      animation: fadeIn 1.5s ease-in-out; /* Apply fade-in effect */
-    }
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
+      transition: width 0.8s ease; /* Animation duration */
     }
   </style>
 </head>
 <body class="home blog panel-initialized" data-current="-1">
-  <!-- Loading Screen -->
-  <div id="loading-screen">
-    <video id="loading-video" autoplay muted>
-      <source src="loading.mp4" type="video/mp4">
-    </video>
-  </div> 
+  <!-- Loading Bar -->
+  <div id="loading-bar"></div>
 
   <header class="header hero-fadein">
     <!-- Your header content goes here -->
@@ -153,25 +129,16 @@
   </div>
 
   <!-- Javascript -->
-  <script src="index_files/jquery.js"></script>
-  <script src="index_files/cssua.min.js"></script>
-  <script src="index_files/modernizr-custom.js"></script>
-  <script src="index_files/lodash.js"></script>
-  <script src="index_files/imagesloaded.pkgd.min.js"></script>
-  <script src="index_files/jquery.mousewheel.min.js"></script>
-  <script src="index_files/swiper.min.js"></script>
-  <script src="index_files/velocity.min.js"></script>
-  <script src="index_files/main.js"></script>
-  <script type="text/javascript" src="index_files/regenerator-runtime.min.js" id="regenerator-runtime-js"></script>
-  <script type="text/javascript" src="index_files/wp-polyfill.min.js" id="wp-polyfill-js"></script>
-  <script type="text/javascript" src="index_files/index.js" id="contact-form-7-js"></script>
-
   <script>
     // JavaScript to control the loading process
-    document.getElementById('loading-video').addEventListener('ended', function() {
-      // Hide the loading screen and show the content
-      document.getElementById('loading-screen').style.display = 'none';
-      document.getElementById('content').style.display = 'block';
+    window.addEventListener('load', function() {
+      // When the page is fully loaded, hide the loading bar
+      document.getElementById('loading-bar').style.width = '100%';
+      // Wait for 0.8 seconds (adjust as needed) and then hide the loading screen
+      setTimeout(function() {
+        document.getElementById('wrapper').style.display = 'block';
+        document.getElementById('loading-bar').style.display = 'none';
+      }, 800);
     });
   </script>
 </body>

@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="index_files/common.css" type="text/css" media="screen,tv">
   <link rel="stylesheet" href="index_files/smallview.css" media="screen and (max-width:800px)">
   <style>
-    /* CSS for the loading screen */
     #loading-screen {
       position: fixed;
       top: 0;
@@ -19,18 +18,18 @@
       width: 100%;
       height: 100%;
       background-color: #000;
-      z-index: 9999; /* Ensure it's on top */
+      z-index: 9999; 
       display: flex;
       justify-content: center;
       align-items: center;
       opacity: 1;
-      transition: opacity 0.8s ease; /* Fade out effect */
+      transition: opacity 0.8s ease;
     }
     #loading-icon {
-      width: 100px; /* Adjust the size of the loading icon */
-      height: 100px; /* Adjust the size of the loading icon */
+      width: 100px;
+      height: 100px;
       background-color: #fff;
-      animation: blink 1s infinite alternate; /* Blink effect */
+      animation: blink 1s infinite alternate; 
     }
     @keyframes blink {
       from {
@@ -43,13 +42,19 @@
   </style>
 </head>
 <body class="home blog panel-initialized" data-current="-1">
-  <!-- Loading Screen -->
   <div id="loading-screen">
     <div id="loading-icon"></div>
   </div>
 
-  <header class="header hero-fadein">
-    <!-- Your header content goes here -->
+<header class="header hero-fadein">
+    </a>
+    <div class="menu-icon hover-item short" id="menu-icon">
+      <a class="menu-trigger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
+    </div>
   </header>
   
   <div class="wrapper" id="wrapper">
@@ -91,7 +96,6 @@
         <div class="panel-content-wrapper">
           <div class="panel-content" style="opacity: 1;">
             <div class="width-inner" id="content">
-              <!-- Your content goes here -->
               <h2 style="font-size: 72px;">S T A T E M E N T</h2>
                   
               <div class="anim statement-text done" style="font-size: 26px;">
@@ -148,7 +152,6 @@
   </div>
   </div>
 
-
   <script src="index_files/jquery.js"></script>
   <script src="index_files/cssua.min.js"></script>
   <script src="index_files/swiper.min.js"></script>
@@ -157,9 +160,7 @@
 
   <script>
     window.addEventListener('load', function() {
-      // When the page is fully loaded, fade out the loading screen
       document.getElementById('loading-screen').style.opacity = '0';
-      // Wait for the transition to complete and then hide the loading screen
       setTimeout(function() {
         document.getElementById('loading-screen').style.display = 'none';
       }, 800);

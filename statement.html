@@ -11,22 +11,33 @@
   <link rel="stylesheet" href="index_files/common.css" type="text/css" media="screen,tv">
   <link rel="stylesheet" href="index_files/smallview.css" media="screen and (max-width:800px)">
   <style>
-    /* CSS for the loading bar */
-    #loading-bar {
+    /* CSS for the loading screen */
+    #loading-screen {
       position: fixed;
       top: 0;
       left: 0;
-      width: 0; /* Initially set to zero width */
-      height: 3px; /* Adjust height as needed */
+      width: 100%;
+      height: 100%;
       background-color: #000;
       z-index: 9999; /* Ensure it's on top */
-      transition: width 0.8s ease; /* Animation duration */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 1;
+      transition: opacity 0.8s ease; /* Fade out effect */
+    }
+    #loading-bar {
+      width: 50%; /* Adjust the width of the loading bar */
+      height: 4px; /* Adjust the height of the loading bar */
+      background-color: #fff;
     }
   </style>
 </head>
 <body class="home blog panel-initialized" data-current="-1">
-  <!-- Loading Bar -->
-  <div id="loading-bar"></div>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div id="loading-bar"></div>
+  </div>
 
   <header class="header hero-fadein">
     <!-- Your header content goes here -->
@@ -132,12 +143,11 @@
   <script>
     // JavaScript to control the loading process
     window.addEventListener('load', function() {
-      // When the page is fully loaded, hide the loading bar
-      document.getElementById('loading-bar').style.width = '100%';
-      // Wait for 0.8 seconds (adjust as needed) and then hide the loading screen
+      // When the page is fully loaded, hide the loading screen
+      document.getElementById('loading-screen').style.opacity = '0';
+      // Wait for the transition to complete and then hide the loading screen
       setTimeout(function() {
-        document.getElementById('wrapper').style.display = 'block';
-        document.getElementById('loading-bar').style.display = 'none';
+        document.getElementById('loading-screen').style.display = 'none';
       }, 800);
     });
   </script>

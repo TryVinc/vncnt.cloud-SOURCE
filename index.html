@@ -20,28 +20,10 @@
         }
     </style>
     
-<script>
-        // Function to handle URL navigation
-        function handleNavigation() {
-            var path = window.location.pathname;
-            // Check if the URL is just the root path '/'
-            if (path === '/') {
-                redirectToHome();
-            } else if (path === '/home' || path === '/statement' || path === '/whoami' || path === '/projects') {
-                // Do nothing, let the browser handle it
-            } else {
-                // Redirect to the home page for any other path
-                redirectToHome();
-            }
-        }
-
-        // Function to redirect to the home page
-        function redirectToHome() {
-            window.location.href = '/home';
-        }
-
-        // Call handleNavigation when the page loads
-        window.onload = handleNavigation;
+    <script>
+        setTimeout(function() {
+            window.location.href = "home.html";
+        }, 1); // 1000 = 1 SECOND
     </script>
 </body>
 </html>

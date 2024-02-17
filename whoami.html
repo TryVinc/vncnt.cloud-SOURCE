@@ -10,51 +10,47 @@
 <link rel="stylesheet" href="index_files/smallview.css" media="screen and (max-width:800px)">
 
 <!--LOAD ANIMATION FADE STARTS HERE-->
-    <style>
-    #loading-screen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #000;
-      z-index: 9999; 
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      opacity: 1;
-      transition: opacity 0.8s ease;
-    }
-    #loading-icon {
-      width: 100px;
-      height: 100px;
-      background-color: #fff;
-      animation: blink 1s infinite alternate; 
-    }
-    @keyframes blink {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-  </style>
+<style>
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  z-index: 9999; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 0.8s ease;
+}
+
+#loading-icon {
+  width: 100%;
+  height: 10px; /* Adjust the height of the loading bar */
+  background-color: #fff;
+  animation: fill 1s infinite alternate; /* Animation for filling */
+}
+
+@keyframes fill {
+  from {
+    width: 0; /* Empty bar */
+  }
+  to {
+    width: 100%; /* Full bar */
+  }
+}
+</style>
 </head>
 <body class="home blog panel-initialized" data-current="-1">
   <div id="loading-screen">
     <div id="loading-icon"></div>
   </div>
 
-<header class="header hero-fadein">
-    </a>
-    <div class="menu-icon hover-item short" id="menu-icon">
-      <a class="menu-trigger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </a>
-    </div>
+  <header class="header hero-fadein">
+    <!-- Your header content here -->
+  </header>
 
   <script>
     window.addEventListener('load', function() {
@@ -65,6 +61,7 @@
     });
   </script>
 <!--LOAD ANIMATION FADE ENDS HERE-->
+
   </header>
   <div class="wrapper" id="wrapper">
     <div class="frame">

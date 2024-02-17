@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Redirecting...</title>
+</head>
+<body>
+    <div id="countdownMessage"></div>
+
+    <script>
+        var redirectURLs = {
+            'top-secret': 'https://vncnt.cloud/random/top-secret',
+            'apaan-nih?': 'https://youtu.be/dQw4w9WgXcQ',
+            'cyvinc': 'https://cyvinc.xyz'
+        };
+
+        function redirectByAlias(alias) {
+            var destinationURL = redirectURLs[alias];
+            if (destinationURL) {
+                window.location.href = destinationURL;
+            } else {
+                window.location.href = 'https://vncnt.cloud/home'; 
+            }
+        }
+
+        function countdownRedirect() {
+            var countdownMessage = document.getElementById('countdownMessage');
+            var seconds = 3;
+
+            var countdownInterval = setInterval(function() {
+                countdownMessage.innerHTML = 'No alias detected. Returning in ' + seconds + ' seconds.';
+                seconds--;
+
+                if (seconds < 0) {
+                    clearInterval(countdownInterval);
+                    redirectByAlias(null);
+                }
+            }, 1000);
+        }
+
+        window.onload = function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var alias = urlParams.get('alias');
+            if (alias) {
+                redirectByAlias(alias);
+            } else {
+                countdownRedirect();
+            }
+        };
+    </script>
+</body>
+</html>

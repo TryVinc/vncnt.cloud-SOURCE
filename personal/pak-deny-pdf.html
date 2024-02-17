@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloading...</title>
+</head>
+<body>
+    <h1>Senibudaya Presentasi 1</h1>
+    <p>Jika tidak terdownload klik ini</p>
+
+    <script>
+      
+        function downloadFile() {
+            var link = document.createElement('a');
+            link.setAttribute('href', 'https://github.com/your-username/your-repo/raw/branch-name/path/to/your/file.ext');
+            link.setAttribute('download', '');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        window.onload = function() {
+            downloadFile();
+        };
+    </script>
+</body>
+</html>

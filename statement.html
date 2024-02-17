@@ -106,7 +106,7 @@
       <div id="overlay"></div>
       <div class="panel-inner">
         <div class="panel-content-wrapper">
-          <div class="panel-content" style="opacity: 1;">
+          <div class="panel-content" style="opacity: 0; animation: fadeIn 1.4s ease 1.4s forwards;">
             <div class="width-inner" id="content">
               <h2 style="font-size: 72px;">S T A T E M E N T</h2>
                   
@@ -141,6 +141,20 @@
           </div>
         </div>
       </div>
+
+<style>
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+      </section>
     </section>
 <!--SECTION MAIN ENDS HERE ................................-->
     

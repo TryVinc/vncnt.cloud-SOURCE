@@ -157,6 +157,21 @@
       </section>
     </section>
 <!--SECTION MAIN ENDS HERE ................................-->
+    <script>
+    // Function to load the content for the specified page
+    function loadPage(page) {
+        // Load content based on the requested page
+        fetch(page + '.html') // Load HTML content for the selected page
+            .then(response => response.text()) // Extract response body as text
+            .then(html => {
+                document.getElementById('main-content').innerHTML = html; // Update main content with fetched HTML
+                // Change the URL without reloading the page
+                history.pushState(null, null, '/' + page);
+            })
+            .catch(error => console.error('Error loading page:', error)); // Log error if fetch fails
+    }
+</script>
+
     
   <footer class="footer hero-fadein">
     <div class="inner flex">

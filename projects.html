@@ -105,7 +105,7 @@
 <div id="overlay"></div>
       <div class="panel-inner">
         <div class="panel-content-wrapper">
-          <div class="panel-content" style="opacity: 1;">
+          <div class="panel-content" style="opacity: 0; animation: fadeIn 1.4s ease 1.4s forwards;">
             <div class="width-inner">
               <h1 class="hero-logo loading-item loading-item-01 loaded" style="font-size: 72px;">UNDER CONSTRUCTION</h1>
               <p class="site-copy loading-item loading-item-02 loaded" style="font-size: 32px;">THIS PAGE IS NOT FINISHED YET.</p>
@@ -113,6 +113,19 @@
           </div>
         </div>
       </div>
+
+<style>
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
       </section>
 <!--SECTION MAIN ENDS HERE ................................-->
     

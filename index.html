@@ -102,19 +102,6 @@
     background-color: rgba(0, 0, 0, 0.4); 
     z-index: -1;
   }
-</style>
-<div id="overlay"></div>
-<div class="panel-inner">
-  <div class="panel-content-wrapper">
-    <div class="panel-content" style="opacity: 0; animation: fadeIn 0.5s ease 0.5s forwards;">
-      <div class="width-inner">
-        <h1 class="hero-logo loading-item loading-item-01 loaded" style="font-size: 72px;">V N C N T . C L O U D</h1>
-        <p class="site-copy loading-item loading-item-02 loaded" style="font-size: 32px;">TO TELL YOU A STORY</p>
-      </div>
-    </div>
-  </div>
-</div>
-
 <style>
   @keyframes fadeIn {
     from {
@@ -127,6 +114,50 @@
     }
   }
 </style>
+<div id="overlay"></div>
+<div class="panel-inner">
+  <div class="panel-content-wrapper">
+    <div class="panel-content" style="opacity: 0;">
+      <div class="width-inner">
+        <h1 class="hero-logo loading-item loading-item-01 loaded" style="font-size: 72px;">V N C N T . C L O U D</h1>
+        <p class="site-copy loading-item loading-item-02 loaded" style="font-size: 32px;">TO TELL YOU A STORY</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.addEventListener('load', function() {
+    document.getElementById('overlay').style.opacity = '0';
+    setTimeout(function() {
+      document.getElementById('overlay').style.display = 'none';
+      animateText();
+    }, 800);
+  });
+
+  function animateText() {
+    var textElements = document.querySelectorAll('.loading-item');
+
+    textElements.forEach(function(element) {
+      var text = element.textContent;
+      element.textContent = '';
+
+      for (var i = 0; i < text.length; i++) {
+        (function(i) {
+          setTimeout(function() {
+            element.textContent += text[i];
+          }, 100 * i);
+        })(i);
+      }
+    });
+
+    // Fade in the text content after all letters are shown
+    setTimeout(function() {
+      document.querySelector('.panel-content').style.opacity = '1';
+    }, 100 * textElements[0].textContent.length); // Adjust timing based on the length of the text
+  }
+</script>
+
       </section>
 <!--SECTION MAIN ENDS HERE ................................-->
     
